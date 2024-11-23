@@ -377,7 +377,7 @@ nav .fa-solid{
     display: none;
 }
 
-@media only screen and (max-width: 1366px){
+@media only screen and (max-width: 600px){
     #header{
         background-image:url(images/bg2.png);
     }
