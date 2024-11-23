@@ -135,7 +135,14 @@
         <div class="row">
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me</h1>
-                <p><i class="fa-solid fa-paper-plane"></i>cimanesdev@gmail.com | jmcimanes@up.edu.ph</p>
+                <p>
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <div class="emails">
+                    <span class="email-line"></span>jmcimanes@up.edu.ph</span><br>
+                    <span class="email-line"></span>cimanesdev@gmail.com</span><br>
+                    <span class="email-line"></span>cimanesjoshbradley@gmail.com</span><br>
+                    </div>
+                </p>
                 <div class="social-icons">
                     <a href="https://facebook.com/cimanesjoshbradley"><i class="fa-brands fa-square-facebook"></i></a>
                     <a href="https://instagram.com/cimanesjoshbradley"><i class="fa-brands fa-instagram"></i></a>
@@ -144,13 +151,15 @@
                 </div>
                 <a href="images/pic.png" download class="btn btn2">Download CV</a>
             </div>
-            <div class="contact-right"></div>
+            <div class="contact-right">
                 <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"></span>
+            </div>
         </div>
     </div>
     <div class="copyright">
@@ -189,11 +198,18 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycby4fdtTb712Az6yiotqQVvQtQNstruNhd7NthQtIU2yAEo4ZU6ZUkciVcRgPjiHR8UD7Q/exec'
         const form = document.forms['submit-to-google-sheet']
-      
+        const msg = document.getElementById("msg")
+
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
             .catch(error => console.error('Error!', error.message))
         })
       </script>

@@ -311,14 +311,20 @@ nav ul li a:hover::after{
 .contact-left p{
     margin-top: 30px;
     font-size: 14px;
+    display: flex;
+    align-items: flex-start;
 }
 
 .contact-left p i{
     color: #ff9900;
-    margin-right: 15px;
-    font-size: 25px;
+    margin-bottom: 15px;
+    font-size: 30px;
 }
 
+.contact-left p .emails{
+    display: flex;
+    flex-direction: column;
+}
 .social-icons{
     margin-top: 30px;
 }
@@ -341,6 +347,7 @@ nav ul li a:hover::after{
     display: inline-block;
     background: #ff9900;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 .contact-right form{
@@ -369,6 +376,7 @@ form input, form textarea{
 
 .copyright a{
     color: #fff
+
 }
 
 /* --------css for mobile----------- */
@@ -439,4 +447,10 @@ nav .fa-solid{
     .copyright{
         font-size: 14px;
     }
+}
+
+#msg{
+    color: #ff9900;
+    margin-top: -40px;
+    display: block;
 }
